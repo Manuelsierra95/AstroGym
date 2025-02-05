@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-black: #1e1e1e;
+  --color-white: #e7e7d8;
+  --color-eagle: #afac95;
+  --color-orange: #ea4125;
+  --text-8.5xl: 110px;
+  --text-8.5xl--line-height: 1;
+  --text-ss: 10px;
+  --text-ss--line-height: 1;
+  --breakpoint-lx: 1140px;
+  --breakpoint-ml: 900px;
+}
