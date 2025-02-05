@@ -1,0 +1,16 @@
+---
+import { activities } from '@/data/activities-data'
+---
+
+{
+  activities.map((activity) => (
+    <>
+      {activity.title}
+      <span>✺</span>
+    </>
+  ))
+}
+
+<!-- Crossfit <span class="hidden lg:inline">✺</span> Boxeo <span class="hidden lg:inline">✺</span> Cardio Boxing <span class="hidden lg:inline">✺</span> Sala Gym <span
+  class="hidden lg:inline">✺</span
+> Zumba <span class="hidden lg:inline">✺</span> -->

@@ -1,0 +1,73 @@
+---
+import NavButton from '@/components/utils/NavButton.astro'
+import MenuIcon from '@/components/assets/MenuIcon.astro'
+---
+
+<section
+  class="fixed z-50 mx-auto border-white/20 border-t 2xl:max-w-7xl bg-black border-b justify-center w-full"
+>
+  <div class="mx-auto bg-black justify-center w-full">
+    <div
+      class="mx-auto border-white/20 border-x max-w-7xl flex flex-col lg:flex-row lg:items-center lg:justify-between w-full"
+    >
+      <div
+        id="menu-container"
+        class="text-white items-start w-full flex flex-col justify-start md:px-0 md:flex-row"
+      >
+        <a
+          href="#top"
+          class="hidden pl-8 text-white text-xs font-display md:inline-flex items-start md:px-8 py-4 uppercase"
+        >
+          <span>Astro <span class="hidden lg:inline">Fitness Club </span></span>
+        </a>
+        <button class="md:hidden py-4 px-8">
+          <MenuIcon />
+        </button>
+
+        <div
+          id="nav-buttons"
+          class="hidden md:flex flex-col md:flex-row w-full md:w-auto ml-auto"
+        >
+          <NavButton name="Videos" bgColor="bg-white" ref="#Videos" />
+          <NavButton name="Clases" bgColor="bg-orange" ref="#Classes" />
+          <NavButton name="Horarios" bgColor="bg-white" ref="#Calendar" />
+          <NavButton name="Precios" bgColor="bg-orange" ref="#Prices" />
+          <NavButton name="Ubicación" bgColor="bg-white" ref="#Location" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const button = document.querySelector('button')
+  const navButtons = document.querySelector('#nav-buttons')
+  const navButtonLinks = navButtons ? navButtons.querySelectorAll('a') : []
+  const menuContainer = document.getElementById('menu-container')
+
+  if (
+    button === null ||
+    navButtons === null ||
+    navButtonLinks === null ||
+    menuContainer === null
+  ) {
+    throw new Error('Could not find button or navButtons')
+  }
+
+  button.addEventListener('click', () => {
+    navButtons.classList.add('flex')
+    navButtons.classList.toggle('hidden')
+  })
+
+  navButtonLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      navButtons.classList.add('hidden')
+    })
+  })
+
+  window.addEventListener('click', (event) => {
+    if (!menuContainer.contains(event.target as Node)) {
+      navButtons.classList.add('hidden')
+    }
+  })
+</script>

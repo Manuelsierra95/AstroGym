@@ -1,0 +1,95 @@
+---
+import { videos } from '@/data/videos-data'
+import { YouTube } from '@astro-community/astro-embed-youtube'
+---
+
+<section id="Videos" class="border-b border-white/20 bg-accent-500">
+  <div
+    class="mx-auto max-w-7xl border-white/20 border-x py-4"
+    x-data="{ init() {
+            new Splide(this.$refs.splide, {
+                perPage: 3,
+                gap: '1rem',
+                breakpoints: {
+                  900: {
+                        perPage: 2,
+                    }, 
+                  639: {
+                        perPage: 1,
+                    },
+                },
+            }).mount()
+        } }"
+  >
+    <section
+      class="splide is-initialized splide--slide splide--ltr splide--draggable is-active"
+      aria-label="Splide/Alpine.js"
+      x-ref="splide"
+      id="splide01"
+      aria-roledescription="carousel"
+    >
+      <div class="splide__arrows splide__arrows--ltr items-center">
+        <button
+          class="splide__arrow splide__arrow--prev"
+          type="button"
+          aria-label="Previous slide"
+          aria-controls="splide01-track"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 40 40"
+            width="40"
+            height="40"
+            focusable="false"
+          >
+            <path
+              d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="splide__arrow splide__arrow--next"
+          type="button"
+          aria-label="Next slide"
+          aria-controls="splide01-track"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 40 40"
+            width="40"
+            height="40"
+            focusable="false"
+          >
+            <path
+              d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div
+        class="h-full splide__track splide__track--slide splide__track--ltr splide__track--draggable"
+        id="splide01-track"
+        style="padding-left: 0px; padding-right: 0px;"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-busy="false"
+      >
+        <ul class="splide__list" id="splide01-list" role="presentation">
+          {
+            videos.map((video, index) => (
+              <li
+                class="flex justify-center flex-col splide__slide"
+                id={`splide01-slide0${index + 1}`}
+                role="tabpanel"
+                aria-roledescription="slide"
+                aria-label={`${index + 1} of ${videos.length}`}
+              >
+                <YouTube id={video.url} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
+</section>

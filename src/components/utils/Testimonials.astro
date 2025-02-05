@@ -1,0 +1,40 @@
+---
+import { testimonials } from '@/data/testimonials-data'
+---
+
+<div
+  class="hidden sm:grid text-white text-xs gap-3 gap-y-12 grid-cols-1 md:grid-cols-4 mx-auto p-8 sm:grid-cols-2"
+>
+  {
+    testimonials.map((testimonial) => (
+      <div class="flex flex-col justify-between h-full">
+        <p>{testimonial.msg}</p>
+        <div class="mt-3">
+          <span class="block font-semibold text-yellow-400">
+            {'✭'.repeat(testimonial.stars)}
+          </span>
+          <span class="block font-semibold mt-3">{testimonial.name}</span>
+          <span class="block text-eagle">{testimonial.info}</span>
+        </div>
+      </div>
+    ))
+  }
+</div>
+<div
+  class="sm:hidden grid text-white text-xs gap-3 gap-y-12 grid-cols-1 md:grid-cols-4 mx-auto p-8 sm:grid-cols-2"
+>
+  {
+    testimonials.slice(2).map((testimonial) => (
+      <div class="flex flex-col justify-between h-full">
+        <p>{testimonial.msg}</p>
+        <div class="mt-3">
+          <span class="block font-semibold text-yellow-400">
+            {'✭'.repeat(testimonial.stars)}
+          </span>
+          <span class="block font-semibold mt-3">{testimonial.name}</span>
+          <span class="block text-eagle">{testimonial.info}</span>
+        </div>
+      </div>
+    ))
+  }
+</div>

@@ -1,0 +1,29 @@
+---
+const { title, icon: Icon, price } = Astro.props
+---
+
+<div
+  class="group px-6 py-4 bg-black rounded-lg flex flex-col items-center justify-center gap-2 relative overflow-hidden cursor-pointer shadow-lg"
+>
+  <div class="absolute inset-0 bg-orange -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+  <div
+    class="w-24 h-24 aspect-square text-orange group-hover:text-white group-hover:bg-gray-800 text-5xl rounded-full p-2 transition-all duration-300 group-hover:-translate-y-2 mx-auto flex items-center justify-center z-10"
+  >
+    <Icon />
+  </div>
+
+  <p class="font-semibold text-slate-200 tracking-wider group-hover:text-gray-800 text-xl text-center z-10">
+    {title}
+  </p>
+  <p class="font-semibold text-slate-300 text-xs text-center group-hover:text-gray-800 z-10">
+    Descubre nuestra clase de {title}
+  </p>
+  <div class="flex flex-row justify-between items-center w-full mt-2 z-10">
+    <p class="text-orange font-semibold group-hover:text-white">${price}/clase</p>
+    <p
+      class="inline-flex items-center gap-3 group-hover:bg-white/10 bg-orange text-white shadow-[5px_5px_50px_rgb(234,65,37)] cursor-pointer py-2 px-4 text-sm font-semibold rounded-full"
+    >
+      Reservar
+    </p>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+---
+const { name, bgColor, ref } = Astro.props
+---
+
+<a
+  href={ref}
+  class=`w-full ${bgColor} md:w-28 lg:w-auto lg:px-6 py-4 md:rounded-full text-center text-xs text-black uppercase duration-200 font-display hover:bg-black hover:text-white`
+  >{name}</a
+>

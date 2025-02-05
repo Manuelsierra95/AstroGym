@@ -1,0 +1,17 @@
+---
+import PricingCard from '@/components/utils/PricingCard.astro'
+import { pricing } from '@/data/prices-data'
+---
+
+<section id="Prices" class="border-white/20 border-b">
+  <div class="mx-auto p-8 border-white/20 border-x max-w-7xl gradient-grid">
+    <div class="mb-8">
+      <p class="text-white font-display uppercase text-3xl lg:text-6xl">Precios</p>
+    </div>
+    <div
+      class="text-white text-xs gap-3 gap-y-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-auto p-8 items-center justify-items-center"
+    >
+      {pricing.map((price) => <PricingCard name={price.name} price={price.price} />)}
+    </div>
+  </div>
+</section>
